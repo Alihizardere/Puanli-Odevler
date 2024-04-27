@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol CityDelegate: AnyObject {
+    func didSelectCity(_ city: String)
+}
+
 class SearchViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var locationLabel: UILabel!
+    var selectedLocation: String?
+    var selectedCity: String?
+    weak var delegate: CityDelegate?
     
     lazy var cities = [String]()
     lazy var filteredCities = [String]()
@@ -26,14 +34,25 @@ class SearchViewController: UIViewController {
         tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: CityCell.reuseIdentifier)
         
         cities = CityManager.shared.cities
+        guard let location = selectedLocation else { return }
+        locationLabel.text = location
     }
     
-    // MARK: - Helpers
+    override func viewWillAppear(_ animated: Bool) {
+        guard let location = selectedLocation else { return }
+        locationLabel.text = location
+    }
+    
+    // MARK: - Actions
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     private func setupFooterView() -> UIView? {
         guard isFiltering && filteredCities.isEmpty else {
             return nil
         }
-        let customFooterView = CustomFooterView()
+        let customFooterView = CustomEmptyView()
         return customFooterView
     }
     
@@ -51,12 +70,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CityCell.reuseIdentifier, for: indexPath) as! CityCell
-        cell.cityLabel.text = isFiltering ? filteredCities[indexPath.row] : cities[indexPath.row]
+        cell.cityLabel.text =  isFiltering ? filteredCities[indexPath.row] : cities[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let city = cities[indexPath.row]
+        let selectedCity = isFiltering ? filteredCities[indexPath.row] : cities[indexPath.row]
+        delegate?.didSelectCity(selectedCity)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

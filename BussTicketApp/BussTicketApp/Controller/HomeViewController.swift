@@ -14,9 +14,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var startPointTF: UITextField!
     @IBOutlet weak var endPointTF: UITextField!
     @IBOutlet weak var dateTF: UITextField!
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var toLabel: UILabel!
+    
     
     var datePicker = UIDatePicker()
     let dateFormetter = DateFormatter()
+    var selectedTextField: UITextField?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -25,6 +29,14 @@ class HomeViewController: UIViewController {
         startPointTF.delegate = self
         endPointTF.delegate = self
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let searchVC = navigationController?.viewControllers.first as? SearchViewController {
+            if let selectedCity = searchVC.selectedCity {
+                startPointTF.text = selectedCity
+            }
+        }
     }
     
     // MARK: - Actions
@@ -126,10 +138,30 @@ extension HomeViewController {
 extension HomeViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let popupVC = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return false }
         popupVC.modalPresentationStyle = .pageSheet
+        
+        if textField == startPointTF {
+            popupVC.selectedLocation = fromLabel.text
+            selectedTextField = startPointTF
+        } else if textField == endPointTF {
+            popupVC.selectedLocation = toLabel.text
+            selectedTextField = endPointTF
+        }
+        
+        popupVC.delegate = self
         present(popupVC, animated: true, completion: nil)
         return false
+    }
+}
+
+// MARK: - SendCityProtocol
+extension HomeViewController: CityDelegate {
+    
+    func didSelectCity(_ city: String) {
+        guard let selectedTextField = selectedTextField else { return }
+        selectedTextField.text = city
     }
 }

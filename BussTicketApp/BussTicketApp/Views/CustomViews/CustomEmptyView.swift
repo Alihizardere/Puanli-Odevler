@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomFooterView: UIView {
+class CustomEmptyView: UIView {
     // MARK: - Properties
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -37,7 +37,7 @@ class CustomFooterView: UIView {
 }
 
 // MARK: - Helpers
-extension CustomFooterView {
+extension CustomEmptyView {
     
     private func style(){
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,15 +47,14 @@ extension CustomFooterView {
     }
     
     private func layout(){
-        
-     NSLayoutConstraint.activate([
-        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-        imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-        imageView.heightAnchor.constraint(equalToConstant: 100),
-        imageView.widthAnchor.constraint(equalToConstant: 100),
-        
-        label.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-        label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8)
-    ])
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            imageView.heightAnchor.constraint(equalToConstant: 100),
+            imageView.widthAnchor.constraint(equalToConstant: 100),
+            
+            label.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8)
+        ])
     }
 }

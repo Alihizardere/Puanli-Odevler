@@ -18,7 +18,7 @@
 		3DD01DAB2BDD173D00B13771 /* CityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DAA2BDD173D00B13771 /* CityManager.swift */; };
 		3DD01DAF2BDD214600B13771 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DAD2BDD214600B13771 /* CityCell.swift */; };
 		3DD01DB02BDD214600B13771 /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD01DAE2BDD214600B13771 /* CityCell.xib */; };
-		3DD01DB32BDD34B100B13771 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DB22BDD34B100B13771 /* CustomFooterView.swift */; };
+		3DD01DB32BDD34B100B13771 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DB22BDD34B100B13771 /* CustomEmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		3DD01DAA2BDD173D00B13771 /* CityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityManager.swift; sourceTree = "<group>"; };
 		3DD01DAD2BDD214600B13771 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		3DD01DAE2BDD214600B13771 /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
-		3DD01DB22BDD34B100B13771 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
+		3DD01DB22BDD34B100B13771 /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 		3DD01DB12BDD346D00B13771 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				3DD01DB22BDD34B100B13771 /* CustomFooterView.swift */,
+				3DD01DB22BDD34B100B13771 /* CustomEmptyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 				3D319C532BDCEF950095BE28 /* File.swift in Sources */,
 				3D8F70872BDCC52E005642CD /* AppDelegate.swift in Sources */,
 				3DD01DAF2BDD214600B13771 /* CityCell.swift in Sources */,
-				3DD01DB32BDD34B100B13771 /* CustomFooterView.swift in Sources */,
+				3DD01DB32BDD34B100B13771 /* CustomEmptyView.swift in Sources */,
 				3D8F70892BDCC52E005642CD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
