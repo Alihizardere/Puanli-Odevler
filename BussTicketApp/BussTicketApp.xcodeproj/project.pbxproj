@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D8F70872BDCC52E005642CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F70862BDCC52E005642CD /* AppDelegate.swift */; };
 		3D8F70892BDCC52E005642CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F70882BDCC52E005642CD /* SceneDelegate.swift */; };
-		3D8F708B2BDCC52E005642CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F708A2BDCC52E005642CD /* ViewController.swift */; };
+		3D8F708B2BDCC52E005642CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F708A2BDCC52E005642CD /* HomeViewController.swift */; };
 		3D8F708E2BDCC52E005642CD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D8F708D2BDCC52E005642CD /* Base */; };
 		3D8F70902BDCC52F005642CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8F708F2BDCC52F005642CD /* Assets.xcassets */; };
 		3D8F70932BDCC52F005642CD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D8F70922BDCC52F005642CD /* Base */; };
@@ -19,7 +19,7 @@
 		3D8F70832BDCC52E005642CD /* BussTicketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussTicketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8F70862BDCC52E005642CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8F70882BDCC52E005642CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D8F708A2BDCC52E005642CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D8F708A2BDCC52E005642CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3D8F708D2BDCC52E005642CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D8F708F2BDCC52F005642CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D8F70922BDCC52F005642CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +37,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D42F4722BDCCAAD00F2C79B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3D8F70862BDCC52E005642CD /* AppDelegate.swift */,
+				3D8F70882BDCC52E005642CD /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3D42F4732BDCCADB00F2C79B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D42F4742BDCCAE100F2C79B /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D8F70942BDCC52F005642CD /* Info.plist */,
+				3D8F70912BDCC52F005642CD /* LaunchScreen.storyboard */,
+				3D8F708F2BDCC52F005642CD /* Assets.xcassets */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		3D42F4752BDCCB3200F2C79B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3D42F4762BDCCB6200F2C79B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D8F708A2BDCC52E005642CD /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3D8F707A2BDCC52E005642CD = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +97,12 @@
 		3D8F70852BDCC52E005642CD /* BussTicketApp */ = {
 			isa = PBXGroup;
 			children = (
-				3D8F70862BDCC52E005642CD /* AppDelegate.swift */,
-				3D8F70882BDCC52E005642CD /* SceneDelegate.swift */,
-				3D8F708A2BDCC52E005642CD /* ViewController.swift */,
+				3D42F4722BDCCAAD00F2C79B /* Core */,
+				3D42F4752BDCCB3200F2C79B /* Models */,
+				3D42F4732BDCCADB00F2C79B /* Views */,
+				3D42F4762BDCCB6200F2C79B /* Controller */,
+				3D42F4742BDCCAE100F2C79B /* Files */,
 				3D8F708C2BDCC52E005642CD /* Main.storyboard */,
-				3D8F708F2BDCC52F005642CD /* Assets.xcassets */,
-				3D8F70912BDCC52F005642CD /* LaunchScreen.storyboard */,
-				3D8F70942BDCC52F005642CD /* Info.plist */,
 			);
 			path = BussTicketApp;
 			sourceTree = "<group>";
@@ -138,7 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D8F708B2BDCC52E005642CD /* ViewController.swift in Sources */,
+				3D8F708B2BDCC52E005642CD /* HomeViewController.swift in Sources */,
 				3D8F70872BDCC52E005642CD /* AppDelegate.swift in Sources */,
 				3D8F70892BDCC52E005642CD /* SceneDelegate.swift in Sources */,
 			);
