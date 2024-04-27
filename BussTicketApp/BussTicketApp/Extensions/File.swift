@@ -1,0 +1,29 @@
+//
+//  File.swift
+//  BussTicketApp
+//
+//  Created by alihizardere on 27.04.2024.
+//
+
+import UIKit
+
+extension UIView {
+    func addShadow(color: UIColor = .black, opacity: Float = 0.5, offset: CGSize = CGSize(width: 0, height: 2), radius: CGFloat = 4, cornerRadius: CGFloat = 5) {
+           layer.shadowColor = color.cgColor
+           layer.shadowOpacity = opacity
+           layer.shadowOffset = offset
+           layer.shadowRadius = radius
+           layer.cornerRadius = cornerRadius
+           layer.masksToBounds = false
+       }
+    
+    func addBorder(color: UIColor = .black, width: CGFloat = 1) {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+    }
+    
+    func roundCorners(cornerRadius: CGFloat) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+    }
+}
