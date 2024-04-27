@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="Gfg-os-fmS">
             <objects>
-                <viewController id="vdM-8Z-gqg" customClass="HomeViewController" customModule="BussTicketApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vdM-8Z-gqg" customClass="HomeViewController" customModule="BussTicketApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yyf-M1-NmE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
                     <connections>
                         <outlet property="dateCardView" destination="g5v-tf-LDm" id="rIN-pX-fjL"/>
                         <outlet property="dateTF" destination="Rnb-Hv-K8H" id="X7w-OV-wJA"/>
-                        <outlet property="endPointTF" destination="Tv7-wJ-z8T" id="m8p-4F-4PC"/>
+                        <outlet property="endPointTF" destination="M7w-Aj-Oya" id="gSe-gY-ddT"/>
                         <outlet property="locationCardView" destination="1NP-cY-4UG" id="2jD-Xj-xDy"/>
                         <outlet property="startPointTF" destination="ump-Le-TZD" id="TSN-aQ-eVC"/>
                     </connections>
@@ -205,6 +205,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEy-Q7-HaJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4870.9923664122134" y="-70.422535211267615"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="F3D-NS-cM9">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="efK-ZP-WbP" customClass="SearchViewController" customModule="BussTicketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mf9-5Q-r9v" customClass="Search">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AZr-jN-tZS">
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DGO-D7-eE2">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="efK-ZP-WbP" id="28i-gM-nRk"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7uK-WF-pJo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DGO-D7-eE2" firstAttribute="top" secondItem="7uK-WF-pJo" secondAttribute="top" id="5qg-2h-xjR"/>
+                            <constraint firstItem="7uK-WF-pJo" firstAttribute="trailing" secondItem="AZr-jN-tZS" secondAttribute="trailing" id="CSY-Ng-63H"/>
+                            <constraint firstItem="7uK-WF-pJo" firstAttribute="bottom" secondItem="AZr-jN-tZS" secondAttribute="bottom" id="QeK-Rj-kVK"/>
+                            <constraint firstItem="DGO-D7-eE2" firstAttribute="leading" secondItem="7uK-WF-pJo" secondAttribute="leading" id="c07-51-y67"/>
+                            <constraint firstItem="AZr-jN-tZS" firstAttribute="top" secondItem="DGO-D7-eE2" secondAttribute="bottom" id="i36-dz-VRh"/>
+                            <constraint firstItem="AZr-jN-tZS" firstAttribute="leading" secondItem="7uK-WF-pJo" secondAttribute="leading" id="oRV-W0-okj"/>
+                            <constraint firstItem="DGO-D7-eE2" firstAttribute="trailing" secondItem="7uK-WF-pJo" secondAttribute="trailing" id="pK7-yd-fLW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NKS-pE-jPx"/>
+                    <connections>
+                        <outlet property="searchBar" destination="DGO-D7-eE2" id="Z4y-vD-euI"/>
+                        <outlet property="tableView" destination="AZr-jN-tZS" id="Ly9-6G-EYR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvv-uF-xKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5770.2290076335876" y="-718.30985915492965"/>
         </scene>
         <!--Seyehatlerim-->
         <scene sceneID="PHQ-AS-M2a">

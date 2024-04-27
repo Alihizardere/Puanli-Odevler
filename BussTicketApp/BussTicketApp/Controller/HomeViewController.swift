@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var locationCardView: UIView!
     @IBOutlet weak var dateCardView: UIView!
     @IBOutlet weak var startPointTF: UITextField!
-    @IBOutlet weak var endPointTF: UIStackView!
+    @IBOutlet weak var endPointTF: UITextField!
     @IBOutlet weak var dateTF: UITextField!
     
     var datePicker = UIDatePicker()
@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        startPointTF.delegate = self
+        endPointTF.delegate = self
+        
     }
     
     // MARK: - Actions
@@ -119,3 +122,14 @@ extension HomeViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
+extension HomeViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let popupVC = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return false }
+        popupVC.modalPresentationStyle = .pageSheet
+        present(popupVC, animated: true, completion: nil)
+        return false
+    }
+}
