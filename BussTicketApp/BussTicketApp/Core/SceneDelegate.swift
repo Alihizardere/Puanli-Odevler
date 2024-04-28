@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  BussTicketApp
+//  BusTicketApp
 //
 //  Created by alihizardere on 27.04.2024.
 //

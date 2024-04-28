@@ -14,6 +14,10 @@
 		3D8F708E2BDCC52E005642CD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D8F708D2BDCC52E005642CD /* Base */; };
 		3D8F70902BDCC52F005642CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8F708F2BDCC52F005642CD /* Assets.xcassets */; };
 		3D8F70932BDCC52F005642CD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D8F70922BDCC52F005642CD /* Base */; };
+		3DBE77542BDE01CD0042FFC6 /* FindBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE77532BDE01CD0042FFC6 /* FindBusViewController.swift */; };
+		3DBE77592BDE0B450042FFC6 /* BusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE77582BDE0B450042FFC6 /* BusCell.xib */; };
+		3DBE775A2BDE0B450042FFC6 /* BusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE77572BDE0B450042FFC6 /* BusCell.swift */; };
+		3DBE775C2BDE13710042FFC6 /* BusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE775B2BDE13710042FFC6 /* BusData.swift */; };
 		3DD01DA82BDD147100B13771 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DA72BDD147100B13771 /* SearchViewController.swift */; };
 		3DD01DAB2BDD173D00B13771 /* CityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DAA2BDD173D00B13771 /* CityManager.swift */; };
 		3DD01DAF2BDD214600B13771 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD01DAD2BDD214600B13771 /* CityCell.swift */; };
@@ -31,6 +35,10 @@
 		3D8F708F2BDCC52F005642CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D8F70922BDCC52F005642CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D8F70942BDCC52F005642CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DBE77532BDE01CD0042FFC6 /* FindBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindBusViewController.swift; sourceTree = "<group>"; };
+		3DBE77572BDE0B450042FFC6 /* BusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCell.swift; sourceTree = "<group>"; };
+		3DBE77582BDE0B450042FFC6 /* BusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusCell.xib; sourceTree = "<group>"; };
+		3DBE775B2BDE13710042FFC6 /* BusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusData.swift; sourceTree = "<group>"; };
 		3DD01DA72BDD147100B13771 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3DD01DAA2BDD173D00B13771 /* CityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityManager.swift; sourceTree = "<group>"; };
 		3DD01DAD2BDD214600B13771 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD01DAA2BDD173D00B13771 /* CityManager.swift */,
+				3DBE775B2BDE13710042FFC6 /* BusData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +107,7 @@
 			children = (
 				3D8F708A2BDCC52E005642CD /* HomeViewController.swift */,
 				3DD01DA72BDD147100B13771 /* SearchViewController.swift */,
+				3DBE77532BDE01CD0042FFC6 /* FindBusViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,11 +142,29 @@
 			path = BussTicketApp;
 			sourceTree = "<group>";
 		};
-		3DD01DAC2BDD211C00B13771 /* TableViews */ = {
+		3DBE77552BDE05C00042FFC6 /* CityCell */ = {
 			isa = PBXGroup;
 			children = (
 				3DD01DAD2BDD214600B13771 /* CityCell.swift */,
 				3DD01DAE2BDD214600B13771 /* CityCell.xib */,
+			);
+			path = CityCell;
+			sourceTree = "<group>";
+		};
+		3DBE77562BDE05D60042FFC6 /* BusCell */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE77572BDE0B450042FFC6 /* BusCell.swift */,
+				3DBE77582BDE0B450042FFC6 /* BusCell.xib */,
+			);
+			path = BusCell;
+			sourceTree = "<group>";
+		};
+		3DD01DAC2BDD211C00B13771 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE77562BDE05D60042FFC6 /* BusCell */,
+				3DBE77552BDE05C00042FFC6 /* CityCell */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -207,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBE77592BDE0B450042FFC6 /* BusCell.xib in Resources */,
 				3D8F70902BDCC52F005642CD /* Assets.xcassets in Resources */,
 				3D8F70932BDCC52F005642CD /* Base in Resources */,
 				3DD01DB02BDD214600B13771 /* CityCell.xib in Resources */,
@@ -221,10 +250,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBE775A2BDE0B450042FFC6 /* BusCell.swift in Sources */,
 				3DD01DA82BDD147100B13771 /* SearchViewController.swift in Sources */,
 				3D8F708B2BDCC52E005642CD /* HomeViewController.swift in Sources */,
 				3DD01DAB2BDD173D00B13771 /* CityManager.swift in Sources */,
 				3D319C532BDCEF950095BE28 /* File.swift in Sources */,
+				3DBE775C2BDE13710042FFC6 /* BusData.swift in Sources */,
+				3DBE77542BDE01CD0042FFC6 /* FindBusViewController.swift in Sources */,
 				3D8F70872BDCC52E005642CD /* AppDelegate.swift in Sources */,
 				3DD01DAF2BDD214600B13771 /* CityCell.swift in Sources */,
 				3DD01DB32BDD34B100B13771 /* CustomEmptyView.swift in Sources */,

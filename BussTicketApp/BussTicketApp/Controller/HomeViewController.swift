@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  BussTicketApp
+//  BusTicketApp
 //
 //  Created by alihizardere on 27.04.2024.
 //
@@ -56,7 +56,20 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func searchBusButton(_ sender: UIButton) {
-        print("Search butona tıklandı")
+        guard let startPoint = startPointTF.text, let endPoint = endPointTF.text, let date = dateTF.text else { return }
+        
+        if startPoint.isEmpty || endPoint.isEmpty || date.isEmpty {
+            print("Lütfen tarih ve gidiş geliş rotası seçiniz")
+            return
+        }
+        
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "FindBusViewController") as? FindBusViewController else { return }
+        
+        destinationVC.selectedStartPoint = startPoint
+        destinationVC.selectedEndPoint = endPoint
+        destinationVC.selectedDate = date
+        
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     @IBAction func dateButton(_ sender: UIButton) {

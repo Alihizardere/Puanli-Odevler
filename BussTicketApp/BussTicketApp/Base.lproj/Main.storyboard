@@ -208,6 +208,36 @@
             </objects>
             <point key="canvasLocation" x="4870.9923664122134" y="-70.422535211267615"/>
         </scene>
+        <!--Find Bus View Controller-->
+        <scene sceneID="xFu-l2-wkB">
+            <objects>
+                <viewController storyboardIdentifier="FindBusViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bYt-oF-krO" customClass="FindBusViewController" customModule="BussTicketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="upR-90-yAf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WaU-76-LsC">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OU7-aj-mkB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WaU-76-LsC" firstAttribute="leading" secondItem="OU7-aj-mkB" secondAttribute="leading" id="2jo-rw-HRS"/>
+                            <constraint firstItem="WaU-76-LsC" firstAttribute="top" secondItem="OU7-aj-mkB" secondAttribute="top" id="Edr-Eb-dpm"/>
+                            <constraint firstItem="OU7-aj-mkB" firstAttribute="trailing" secondItem="WaU-76-LsC" secondAttribute="trailing" id="oaF-S6-IKu"/>
+                            <constraint firstItem="OU7-aj-mkB" firstAttribute="bottom" secondItem="WaU-76-LsC" secondAttribute="bottom" id="vwJ-0R-qep"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="WaU-76-LsC" id="SHB-vA-kMN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C12-hq-A1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5668" y="-57"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="F3D-NS-cM9">
             <objects>
@@ -299,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvv-uF-xKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5770.2290076335876" y="-718.30985915492965"/>
+            <point key="canvasLocation" x="4871" y="-729"/>
         </scene>
         <!--Seyehatlerim-->
         <scene sceneID="PHQ-AS-M2a">
