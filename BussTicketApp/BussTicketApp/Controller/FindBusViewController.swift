@@ -42,4 +42,9 @@ extension FindBusViewController: UITableViewDelegate, UITableViewDataSource{
         cell.setupCell(with: bus, startPoint: selectedStartPoint!, endPoint: selectedEndPoint!, date: selectedDate!)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toSeatsVC", sender: nil)
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "FindBusViewController") as? FindBusViewController else { return }
+    }
 }
