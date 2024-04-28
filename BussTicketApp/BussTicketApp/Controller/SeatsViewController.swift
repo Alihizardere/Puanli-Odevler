@@ -11,9 +11,9 @@ class SeatsViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
-    var selectedSeats = [Int]()
-    var seatNumber: String?
-    let seats = ["1","2", "", "3", "4", "5", "", "6", "7", "8", "", "9", "10", "11", "", "12", "13", "14", "", "15", "16", "17", "", "18", "19", "20", "", "21", "22", "23", "", "24", "25", "26", "", "27", "28", "29", "", "30", "31", "32", "", "33", "34", "35", "", "36", "37", "38", "", "39", "40", "41", "", "42", "43", "44", "", "45"]
+    let seats: [String] =  AllSeats.seats
+    var seatModels: [Seat] = []
+    var selectedSeats: [Int] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -22,6 +22,7 @@ class SeatsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SeatCell", bundle: nil),forCellWithReuseIdentifier: SeatCell.reuseIdentifier)
         setupFlowLoyaout()
+        setupSeatModels()
     }
     private func setupFlowLoyaout(){
         let flowLayout = UICollectionViewFlowLayout()
@@ -30,6 +31,15 @@ class SeatsViewController: UIViewController {
         flowLayout.minimumInteritemSpacing = 2 // Hücreler arası yatay boşluk
         flowLayout.minimumLineSpacing = 0// Hücreler arası dikey boşluk
         collectionView.collectionViewLayout = flowLayout
+    }
+    
+    private func setupSeatModels() {
+        for i in 1...45 {
+            let isOccupied = Int.random(in: 1...10) <= 2
+            let seatStatus: SeatStatus = isOccupied ? .Occupied : .Empty
+            let seat = Seat(seatNumber: "\(i)", seatStatus: seatStatus)
+            seatModels.append(seat)
+        }
     }
 }
 
@@ -43,29 +53,55 @@ extension SeatsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeatCell.reuseIdentifier, for: indexPath) as! SeatCell
+        
+        for _ in seatModels.count..<seats.count {
+            let newSeat = Seat(seatNumber: nil, seatStatus: .Empty)
+            seatModels.append(newSeat)
+        }
+        
         let seat = seats[indexPath.row]
         cell.seatNumberLabel.text = seat
-        
         cell.isHidden = seat == "" ? true : false
-        cell.cardView.backgroundColor = selectedSeats.contains(indexPath.item) ? .green : .white
+        
+        let seatmodel = seatModels[indexPath.row]
+        
+        switch seatmodel.seatStatus {
+            case .Empty:
+                cell.cardView.backgroundColor = .white
+            case .Selected:
+                cell.cardView.backgroundColor = .green
+            case .Occupied:
+                cell.cardView.backgroundColor = .red
+            case .none:
+                cell.cardView.backgroundColor = .white
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        seatNumber = seats[indexPath.row]
         
-        if selectedSeats.count < 5 {
-            
-            if let index = selectedSeats.firstIndex(of: indexPath.item) {
-                selectedSeats.remove(at: index)
+        let seatModel = seatModels[indexPath.row]
+        
+        switch seatModel.seatStatus {
+        case .Empty:
+            if selectedSeats.count < 5 {
+                seatModels[indexPath.row].seatStatus = .Selected
+                selectedSeats.append(indexPath.row)
             } else {
-                selectedSeats.append(indexPath.item)
+                UIAlertController.showAlert(title: "Maksimum Koltuk Sayısı", message: "5 adet koltuk seçtiniz. Daha fazla koltuk seçemezsiniz.", viewController: self)
             }
-            
-        } else {
-            print("En fazla 5 koltuk seçebilirsiniz.")
+        case .Selected:
+            seatModels[indexPath.row].seatStatus = .Empty
+            if let index = selectedSeats.firstIndex(of: indexPath.row) {
+                selectedSeats.remove(at: index)
+            }
+        case .Occupied:
+            UIAlertController.showAlert(title: "Koltuk dolu", message: "Lütfen boş bir koltuk seçiniz", viewController: self)
+        case .none:
+           print("Koltuk seçme hatası")
         }
+        
         collectionView.reloadData()
     }
 }

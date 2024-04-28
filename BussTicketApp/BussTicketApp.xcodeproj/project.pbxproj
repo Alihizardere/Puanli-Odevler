@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D319C532BDCEF950095BE28 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D319C522BDCEF950095BE28 /* File.swift */; };
+		3D319C532BDCEF950095BE28 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D319C522BDCEF950095BE28 /* UIView+Extension.swift */; };
+		3D4E98612BDEC72600285644 /* AllSeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E98602BDEC72600285644 /* AllSeats.swift */; };
+		3D4E98632BDEC8C200285644 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E98622BDEC8C200285644 /* Seat.swift */; };
+		3D4E98652BDEE49900285644 /* UIAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E98642BDEE49900285644 /* UIAlert+Extension.swift */; };
 		3D8F70872BDCC52E005642CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F70862BDCC52E005642CD /* AppDelegate.swift */; };
 		3D8F70892BDCC52E005642CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F70882BDCC52E005642CD /* SceneDelegate.swift */; };
 		3D8F708B2BDCC52E005642CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F708A2BDCC52E005642CD /* HomeViewController.swift */; };
@@ -29,7 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D319C522BDCEF950095BE28 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		3D319C522BDCEF950095BE28 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3D4E98602BDEC72600285644 /* AllSeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSeats.swift; sourceTree = "<group>"; };
+		3D4E98622BDEC8C200285644 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		3D4E98642BDEE49900285644 /* UIAlert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+Extension.swift"; sourceTree = "<group>"; };
 		3D8F70832BDCC52E005642CD /* BussTicketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BussTicketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8F70862BDCC52E005642CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8F70882BDCC52E005642CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +72,8 @@
 		3D319C512BDCEF790095BE28 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3D319C522BDCEF950095BE28 /* File.swift */,
+				3D319C522BDCEF950095BE28 /* UIView+Extension.swift */,
+				3D4E98642BDEE49900285644 /* UIAlert+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -105,6 +112,8 @@
 			children = (
 				3DD01DAA2BDD173D00B13771 /* CityManager.swift */,
 				3DBE775B2BDE13710042FFC6 /* BusData.swift */,
+				3D4E98602BDEC72600285644 /* AllSeats.swift */,
+				3D4E98622BDEC8C200285644 /* Seat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,18 +277,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4E98652BDEE49900285644 /* UIAlert+Extension.swift in Sources */,
 				3DBE775A2BDE0B450042FFC6 /* BusCell.swift in Sources */,
 				3DD01DA82BDD147100B13771 /* SearchViewController.swift in Sources */,
 				3DABA95B2BDE6501001EDD87 /* SeatCell.swift in Sources */,
 				3D8F708B2BDCC52E005642CD /* HomeViewController.swift in Sources */,
 				3DD01DAB2BDD173D00B13771 /* CityManager.swift in Sources */,
-				3D319C532BDCEF950095BE28 /* File.swift in Sources */,
+				3D319C532BDCEF950095BE28 /* UIView+Extension.swift in Sources */,
 				3DBE775C2BDE13710042FFC6 /* BusData.swift in Sources */,
 				3DBE77542BDE01CD0042FFC6 /* FindBusViewController.swift in Sources */,
+				3D4E98632BDEC8C200285644 /* Seat.swift in Sources */,
 				3DBE775E2BDE289A0042FFC6 /* SeatsViewController.swift in Sources */,
 				3D8F70872BDCC52E005642CD /* AppDelegate.swift in Sources */,
 				3DD01DAF2BDD214600B13771 /* CityCell.swift in Sources */,
 				3DD01DB32BDD34B100B13771 /* CustomEmptyView.swift in Sources */,
+				3D4E98612BDEC72600285644 /* AllSeats.swift in Sources */,
 				3D8F70892BDCC52E005642CD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
