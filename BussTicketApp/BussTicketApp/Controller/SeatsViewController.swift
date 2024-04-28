@@ -11,6 +11,8 @@ class SeatsViewController: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var fullNameLabel: UITextField!
+    @IBOutlet weak var idLabel: UITextField!
     let seats: [String] =  AllSeats.seats
     var seatModels: [Seat] = []
     var selectedSeats: [Int] = []
@@ -23,13 +25,15 @@ class SeatsViewController: UIViewController {
         collectionView.register(UINib(nibName: "SeatCell", bundle: nil),forCellWithReuseIdentifier: SeatCell.reuseIdentifier)
         setupFlowLoyaout()
         setupSeatModels()
+        title = "Seatss"
     }
+    
     private func setupFlowLoyaout(){
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
+        flowLayout.scrollDirection = .vertical
         flowLayout.itemSize = CGSize(width: 60, height: 60) // Hücre boyutu
         flowLayout.minimumInteritemSpacing = 2 // Hücreler arası yatay boşluk
-        flowLayout.minimumLineSpacing = 0// Hücreler arası dikey boşluk
+        flowLayout.minimumLineSpacing = 2// Hücreler arası dikey boşluk
         collectionView.collectionViewLayout = flowLayout
     }
     
@@ -40,6 +44,9 @@ class SeatsViewController: UIViewController {
             let seat = Seat(seatNumber: "\(i)", seatStatus: seatStatus)
             seatModels.append(seat)
         }
+    }
+    
+    @IBAction func buyButton(_ sender: Any) {
     }
 }
 
