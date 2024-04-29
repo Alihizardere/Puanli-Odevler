@@ -17,10 +17,12 @@ class FindBusViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "BusCell", bundle: nil), forCellReuseIdentifier: BusCell.reuseIdentifier)
         busList = BusData.mockTickets()
+        navigationController?.navigationBar.tintColor = .red 
     }
 }
 
@@ -31,6 +33,7 @@ extension FindBusViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: BusCell.reuseIdentifier, for: indexPath) as! BusCell
         let bus = busList[indexPath.row]
         cell.setupCell(with: bus, travelDetail: travelDetail!)
@@ -38,6 +41,7 @@ extension FindBusViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let bus = busList[indexPath.row]
         performSegue(withIdentifier: "toSeatsVC", sender: bus)
     }

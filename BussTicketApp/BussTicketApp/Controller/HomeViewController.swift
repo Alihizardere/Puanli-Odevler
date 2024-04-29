@@ -61,7 +61,7 @@ class HomeViewController: UIViewController {
         guard let startPoint = startPointTF.text, let endPoint = endPointTF.text, let date = dateTF.text else { return }
         
         if startPoint.isEmpty || endPoint.isEmpty || date.isEmpty {
-            print("Lütfen tarih ve gidiş geliş rotası seçiniz")
+            UIAlertController.showAlert(title: "Boş Alan", message: "Lütfen nereden nereye gitmek istediğinizi seçiniz.", viewController: self)
             return
         }
         

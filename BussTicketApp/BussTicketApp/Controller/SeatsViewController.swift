@@ -10,9 +10,12 @@ import UIKit
 class SeatsViewController: UIViewController {
     
     // MARK: - Properties
+    @IBOutlet weak var headerContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var fullNameLabel: UITextField!
     @IBOutlet weak var idLabel: UITextField!
+    @IBOutlet weak var startPoint: UILabel!
+    @IBOutlet weak var endPoint: UILabel!
     let seats: [String] =  AllSeats.seats
     var seatModels: [Seat] = []
     var selectedSeats: [Int] = []
@@ -24,15 +27,22 @@ class SeatsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SeatCell", bundle: nil),forCellWithReuseIdentifier: SeatCell.reuseIdentifier)
+        
+        headerContainerView.addShadow()
+        startPoint.text = travelDetail?.startPoint
+        endPoint.text = travelDetail?.endPoint
+        
         setupFlowLoyaout()
         setupSeatModels()
     }
     
     // MARK: - Functions
     private func setupFlowLoyaout(){
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.itemSize = CGSize(width: 60, height: 60) // Hücre boyutu
@@ -42,6 +52,7 @@ class SeatsViewController: UIViewController {
     }
     
     private func setupSeatModels() {
+        
         for i in 1...45 {
             let isOccupied = Int.random(in: 1...10) <= 2
             let seatStatus: SeatStatus = isOccupied ? .Occupied : .Empty
@@ -53,7 +64,11 @@ class SeatsViewController: UIViewController {
     @IBAction func buyButton(_ sender: UIButton) {
         
         guard let fullName = fullNameLabel.text, !fullName.isEmpty,
-                 let id = idLabel.text, !id.isEmpty else { return }
+              let id = idLabel.text, !id.isEmpty,
+              !selectedSeatsValue.isEmpty else {
+            UIAlertController.showAlert(title: "Boş", message: "Lütfen boş alanları doldurunuz.", viewController: self)
+            return
+        }
         
         let passenger = Passenger(fullName: fullName, id: id)
         
@@ -97,9 +112,9 @@ extension SeatsViewController: UICollectionViewDelegate, UICollectionViewDataSou
             case .Empty:
                 cell.cardView.backgroundColor = .white
             case .Selected:
-                cell.cardView.backgroundColor = .green
+                cell.cardView.backgroundColor = .systemGreen
             case .Occupied:
-                cell.cardView.backgroundColor = .red
+            cell.cardView.backgroundColor = .systemGray2
             case .none:
                 cell.cardView.backgroundColor = .white
         }

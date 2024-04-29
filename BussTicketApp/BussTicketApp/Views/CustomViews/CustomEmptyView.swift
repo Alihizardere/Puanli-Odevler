@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomEmptyView: UIView {
+    
     // MARK: - Properties
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,6 +25,7 @@ class CustomEmptyView: UIView {
         label.text = "No results found"
         return label
     }()
+    
     // MARK: - LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +49,9 @@ extension CustomEmptyView {
     }
     
     private func layout(){
+        
         NSLayoutConstraint.activate([
+            
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             imageView.heightAnchor.constraint(equalToConstant: 100),

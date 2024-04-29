@@ -40,11 +40,13 @@ class Onboarding: UIViewController{
     
     @IBAction func nextButton(_ sender: Any) {
         if currentPage == slides.count - 1 {
+            
             let controller = storyboard?.instantiateViewController(withIdentifier: "homeTB") as! UITabBarController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
             present(controller, animated: true)
-        }else{
+        } else {
+            
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)

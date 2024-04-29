@@ -36,7 +36,7 @@ class BusCell: UITableViewCell {
         endPointLabel.text = travelDetail.endPoint
         dateLabel.text = travelDetail.date
         deparatureTimeLabel.text = bus.departureTime
-        priceLabel.text = bus.price
+        priceLabel.text = "\(bus.price)₺"
         durationLabel.text = bus.duration
         busLogo.image =  bus.image
         
