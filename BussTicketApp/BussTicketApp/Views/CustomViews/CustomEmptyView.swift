@@ -22,7 +22,7 @@ class CustomEmptyView: UIView {
         label.textAlignment = .center
         label.textColor = .gray
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.text = "No results found"
+        label.text = "Sonuç bulunamadı.."
         return label
     }()
     
