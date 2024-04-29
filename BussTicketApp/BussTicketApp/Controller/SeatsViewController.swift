@@ -16,6 +16,10 @@ class SeatsViewController: UIViewController {
     let seats: [String] =  AllSeats.seats
     var seatModels: [Seat] = []
     var selectedSeats: [Int] = []
+    var selectedSeatsValue: [Int] = []
+    var selectedBus: BusData?
+    var travelDetail: TravelDetail?
+    var ticket: Ticket?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -25,9 +29,9 @@ class SeatsViewController: UIViewController {
         collectionView.register(UINib(nibName: "SeatCell", bundle: nil),forCellWithReuseIdentifier: SeatCell.reuseIdentifier)
         setupFlowLoyaout()
         setupSeatModels()
-        title = "Seatss"
     }
     
+    // MARK: - Functions
     private func setupFlowLoyaout(){
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -45,8 +49,25 @@ class SeatsViewController: UIViewController {
             seatModels.append(seat)
         }
     }
+
+    @IBAction func buyButton(_ sender: UIButton) {
+        
+        guard let fullName = fullNameLabel.text, !fullName.isEmpty,
+                 let id = idLabel.text, !id.isEmpty else { return }
+        
+        let passenger = Passenger(fullName: fullName, id: id)
+        
+       ticket = Ticket(passenger: passenger, seats:  selectedSeatsValue, travelDetail: travelDetail, bus: selectedBus)
+        
+        performSegue(withIdentifier: "toTicketVC", sender: nil)
+    }
     
-    @IBAction func buyButton(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toTicketVC" {
+            let destination = segue.destination as? TicketViewController
+            destination?.ticket = ticket
+        }
     }
 }
 
@@ -87,6 +108,22 @@ extension SeatsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let cell = collectionView.cellForItem(at: indexPath) as? SeatCell,
+              let seatNumber = cell.seatNumberLabel.text else { return }
+        let number = Int(seatNumber)
+        
+        if selectedSeatsValue.contains(number!) {
+            if let index = selectedSeatsValue.firstIndex(of: number!) {
+                selectedSeatsValue.remove(at: index)
+            }
+        } else {
+            
+            if selectedSeatsValue.count < 5 {
+                selectedSeatsValue.append(number!)
+                selectedSeatsValue.sort()
+            }
+        }
         
         let seatModel = seatModels[indexPath.row]
         
@@ -106,9 +143,8 @@ extension SeatsViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case .Occupied:
             UIAlertController.showAlert(title: "Koltuk dolu", message: "Lütfen boş bir koltuk seçiniz", viewController: self)
         case .none:
-           print("Koltuk seçme hatası")
+           print("")
         }
-        
         collectionView.reloadData()
     }
 }

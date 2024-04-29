@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
     // MARK: - Properties
     @IBOutlet weak var locationCardView: UIView!
     @IBOutlet weak var dateCardView: UIView!
@@ -17,7 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
     
-    
+    var travelDetail: TravelDetail?
     var datePicker = UIDatePicker()
     let dateFormetter = DateFormatter()
     var selectedTextField: UITextField?
@@ -30,6 +31,7 @@ class HomeViewController: UIViewController {
         endPointTF.delegate = self
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let searchVC = navigationController?.viewControllers.first as? SearchViewController {
@@ -63,11 +65,10 @@ class HomeViewController: UIViewController {
             return
         }
         
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "FindBusViewController") as? FindBusViewController else { return }
+        travelDetail = TravelDetail(startPoint: startPoint, endPoint: endPoint, date: date)
         
-        destinationVC.selectedStartPoint = startPoint
-        destinationVC.selectedEndPoint = endPoint
-        destinationVC.selectedDate = date
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "FindBusViewController") as? FindBusViewController else { return }
+        destinationVC.travelDetail = travelDetail
         
         navigationController?.pushViewController(destinationVC, animated: true)
     }

@@ -31,10 +31,10 @@ class BusCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(with bus: BusData, startPoint: String, endPoint: String, date: String ){
-        startPointLabel.text = startPoint
-        endPointLabel.text = endPoint
-        dateLabel.text = date
+    func setupCell(with bus: BusData, travelDetail: TravelDetail ){
+        startPointLabel.text = travelDetail.startPoint
+        endPointLabel.text = travelDetail.endPoint
+        dateLabel.text = travelDetail.date
         deparatureTimeLabel.text = bus.departureTime
         priceLabel.text = bus.price
         durationLabel.text = bus.duration
